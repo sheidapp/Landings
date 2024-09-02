@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Playwing</title>
+    <meta name="description" content="Playwing landing page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#fafafa">
+</head>
+<body>
+<header tabindex="0">
+    <img src="Images/Playwing Logo.svg" alt="Playwing Logo">
+</header>
+
+<div class="captcha-container">
+    <div class="captcha-instruction">
+        <p>Dapatkan akses kepada kandungan, dengan memilih semua gambar dengan kucing.</p>
+        <p>Masukkan nombor telefon anda dan tekan "Teruskan" apabila tiada lagi imej yang berkaitan untuk dipilih</p>
+    </div>
+    
+    <div class="captcha-grid">
+        
+        <div class="captcha-image" data-image="cat1"><img src="Images/cat1.jpg" alt="Cat 1"></div>
+        <div class="captcha-image" data-image="road1"><img src="Images/road1.jpg" alt="Road 1"></div>
+        <div class="captcha-image" data-image="cat2"><img src="Images/cat2.jpg" alt="Cat 2"></div>
+        <div class="captcha-image" data-image="tree1"><img src="Images/tree1.jpg" alt="Tree 1"></div>
+        <div class="captcha-image" data-image="cat3"><img src="Images/cat3.jpg" alt="Cat 3"></div>
+        <div class="captcha-image" data-image="house1"><img src="Images/house1.jpg" alt="House 1"></div>
+        <div class="captcha-image" data-image="tree2"><img src="Images/tree2.jpg" alt="Tree 2"></div>
+        <div class="captcha-image" data-image="street1"><img src="Images/street1.jpg" alt="Street 1"></div>
+        <div class="captcha-image" data-image="tree3"><img src="Images/tree3.jpg" alt="Tree 3"></div>
+    </div>
+    
+    <div class="subscribe-section">
+        <input 
+            type="tel" 
+            id="phone-number" 
+            placeholder="Masukkan nombor telefon anda" 
+            pattern="[0-9]*" 
+            inputmode="numeric" 
+            oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+        <button id="verify-button">Teruskan</button>
+    </div>
+    
+    <div class="info-wrapper">
+        <div class="info-text-wrapper">
+            <p>Dengan mendaftar sekarang, anda menerima terma dan syarat kami.</p>
+            <p>Caj akan ditambahkan ke bil telefon anda. Muat turun 10 permainan pilihan anda setiap minggu dengan hanya 4.9 MYR/minggu.</p>
+            <p>Semua iklan dan pembelian dalam aplikasi telah dibuang.</p>
+            <p>Anda boleh menyimpan semua permainan yang telah anda muat turun walaupun jika anda membatalkan langganan anda. Anda boleh membatalkan langganan anda pada bila-bila masa di bahagian "Akaun Saya".</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="navigation-menu">
+        <div class="navigation-menu-item"><a href="/tnc">T&C</a></div>
+        <div class="navigation-menu-item"><a href="/contact_us">Contact Us</a></div>
+        <div class="navigation-menu-item"><a href="/imprint">FAQ</a></div>
+    </div>
+    <div class="copyright">© Playwing 2024</div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+// Function to toggle 
+function toggleSelection(element) {
+    element.classList.toggle('selected');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const captchaImages = document.querySelectorAll('.captcha-image');
+    const verifyButton = document.getElementById('verify-button');
+
+    // Add click event 
+    captchaImages.forEach(image => {
+        image.addEventListener('click', function() {
+            // Check if the image is of a cat using the 'data-image' attribute
+            if (this.getAttribute('data-image').startsWith('cat')) {
+                toggleSelection(this);
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
